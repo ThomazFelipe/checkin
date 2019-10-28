@@ -1,4 +1,4 @@
-# QUEUE-MANAGEMENT
+# CHECKIN
 
 Api de serviços utilizados na matéria de TCC-2
 
