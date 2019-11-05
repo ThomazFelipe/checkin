@@ -3,6 +3,7 @@ package com.unitri.tcc.checkin.data.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table( name = "CHECK_EVENT" )
@@ -34,8 +35,9 @@ public class Event implements Serializable {
     @Column( name = "LONGITUDE" )
     private Double longitude;
 
-//    @Column( name = "CREATOR" )
-//    private User creator;
+    @ManyToOne
+    @JoinColumn( name = "CREATOR_ID" )
+    private User creator;
 
     @Column( name = "ADDITIONAL_INFO" )
     private String additionalInfo;
@@ -112,14 +114,14 @@ public class Event implements Serializable {
         return this;
     }
 
-//    public User getCreator() {
-//        return creator;
-//    }
-//
-//    public Event setCreator( User creator ) {
-//        this.creator = creator;
-//        return this;
-//    }
+    public User getCreator() {
+        return creator;
+    }
+
+    public Event setCreator( User creator ) {
+        this.creator = creator;
+        return this;
+    }
 
     public String getAdditionalInfo() {
         return additionalInfo;

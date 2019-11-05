@@ -13,11 +13,13 @@ public class Certified implements Serializable {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-//    @Column( name = "USER_ID" )
-//    private User user;
-//
-//    @Column( name = "EVENT_ID" )
-//    private Event event;
+    @ManyToOne
+    @JoinColumn( name = "USER_ID" )
+    private User user;
+
+    @ManyToOne
+    @JoinColumn( name = "EVENT_ID" )
+    private Event event;
 
     @Column( name = "CREATED_AT" )
     private LocalDate createdAt;
@@ -34,23 +36,23 @@ public class Certified implements Serializable {
         return this;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public Certified setUser( User user ) {
-//        this.user = user;
-//        return this;
-//    }
-//
-//    public Event getEvent() {
-//        return event;
-//    }
-//
-//    public Certified setEvent( Event event ) {
-//        this.event = event;
-//        return this;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public Certified setUser( User user ) {
+        this.user = user;
+        return this;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public Certified setEvent( Event event ) {
+        this.event = event;
+        return this;
+    }
 
     public LocalDate getCreatedAt() {
         return createdAt;
